@@ -8,7 +8,7 @@ WriteMakefile(
     AUTHOR           => q{Subhojit Banerjee <subhojit20@gmail.com>},
     VERSION_FROM     => 'lib/Bloom/Scalable.pm',
     ABSTRACT_FROM    => 'lib/Bloom/Scalable.pm',
-    LICENSE          => 'Artistic_2_0',
+    LICENSE          => 'artistic_2',
     PL_FILES         => {},
     MIN_PERL_VERSION => 5.006,
     CONFIGURE_REQUIRES => {
@@ -25,4 +25,15 @@ WriteMakefile(
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Bloom-Scalable-*' },
+    (eval { ExtUtils::MakeMaker->VERSION(6.46) } ? (META_MERGE => {
+    'meta-spec' => { version => 2 },
+     resources => {
+         repository => {
+             type => 'git',
+             url  => 'https://github.com/polya20/Bloom-Scalable.git',
+             web  => 'https://github.com/polya20/Bloom-Scalable',
+         },
+     }})
+     : ()
+   ),
 );
